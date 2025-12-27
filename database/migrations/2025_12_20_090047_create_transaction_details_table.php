@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('transaction_id')->constrained('transactions');
             $table->foreignId('product_id')->constrained('products');
-            $table->integer('price');
-            $table->integer('quantity');
-            $table->integer('sub_total');
+            $table->integer('quantity')->default(0);
+            $table->integer('price')->default(0);
+            $table->integer('subtotal')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
