@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('category_id')->constrained('categories');
-            $table->decimal('price', 12, 2);
-            $table->integer('quantity')->default(0);
+            $table->string('contact')->nullable();
+            $table->text('address')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
